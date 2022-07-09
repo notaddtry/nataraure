@@ -11,5 +11,23 @@
 .card {
   display: flex;
   flex-direction: column;
-  height: 370px;
+  height: 415px;
+}
+
+.card_action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buy_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+
+  .cost {
+    font-size: 1.5rem;
+    font-weight: 100;
+  }
 }

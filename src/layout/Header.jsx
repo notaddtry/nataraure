@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import React, { useEffect, useLayoutEffect, useState } from 'react'
 import useWindowSize from '../hooks'
+import Image from 'next/image'
+import LogoPic from '../../public/assets/logo.png'
 
 import styles from './layout.module.scss'
 
@@ -22,7 +24,9 @@ const Header = () => {
       <nav className='navbar-fixed lime'>
         <div className='nav-wrapper'>
           <Link href='/' className={`${styles.logo} brand-logo`}>
-            <a>Logo</a>
+            <a>
+              <Image src={LogoPic} alt='logo' width={80} height={60} />
+            </a>
           </Link>
           <span
             className='sidenav-trigger hide-on-large-only'
@@ -33,6 +37,11 @@ const Header = () => {
             <li>
               <Link href='/about'>
                 <a>About</a>
+              </Link>
+            </li>
+            <li>
+              <Link href='/items'>
+                <a>Products</a>
               </Link>
             </li>
             <li>
@@ -72,6 +81,11 @@ const Header = () => {
         <li>
           <Link href='/about'>
             <a onClick={() => setSlider((s) => !s)}>About us</a>
+          </Link>
+        </li>
+        <li>
+          <Link href='/items'>
+            <a onClick={() => setSlider((s) => !s)}>Products</a>
           </Link>
         </li>
         <li>
