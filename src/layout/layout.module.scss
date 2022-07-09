@@ -1,0 +1,29 @@
+@import '../../styles/variables.scss';
+
+.container {
+  flex: 1 1 100%;
+  // background-color: $color;
+}
+
+.footer {
+  padding-top: 0 !important;
+}
+
+.navbar {
+  z-index: 998 !important;
+}
+
+.close_wrapper {
+  height: 56px;
+}
+
+.close {
+  float: left;
+  position: relative;
+  z-index: 1;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 18px;
+}
