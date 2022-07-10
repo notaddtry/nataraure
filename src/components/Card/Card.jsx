@@ -8,7 +8,7 @@ const Card = ({ canBePurchased, id, name, img, desc, cost }) => {
   return (
     <div className='row'>
       <div className='col s12'>
-        <div className={`${styles.card} card`}>
+        <div className={`${styles.card} card hoverable`}>
           <div className='card-image'>
             <Image
               src='https://picsum.photos/300/200'
@@ -22,13 +22,13 @@ const Card = ({ canBePurchased, id, name, img, desc, cost }) => {
 
           <div className={styles.buy_wrapper}>
             <span className={styles.cost}>Цена: {cost}р</span>
-            <button className='waves-effect waves-light btn orange accent-2 right'>
+            <button className='waves-effect waves-light btn  pink accent-2 right'>
               <i className='material-icons'>shopping_cart</i>
             </button>
           </div>
           <div className={`${styles.card_action} card-action`}>
             <Link href={`/items/${id}`}>
-              <a>Прочитай про меня</a>
+              <a className='pink-text text-accent-2 remove_margin'>Прочитай про меня</a>
             </Link>
           </div>
         </div>
