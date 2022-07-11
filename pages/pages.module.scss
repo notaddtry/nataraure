@@ -30,4 +30,8 @@
 .index_content_wrapper {
   margin-top: calc(100vh - 56px);
   min-height: 100vh;
+
+  .content_text_wrapper {
+    display: flex;
+  }
 }

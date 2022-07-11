@@ -6,8 +6,9 @@ import Title from '../src/components/Title'
 import backgroundPic from '../public/assets/background.jpg'
 
 import styles from './pages.module.scss'
+import LineWithArrow from '../src/components/LineWithArrow'
 
-const textAnimation = {
+const helloAnimation = {
   hidden: {
     opacity: 0,
   },
@@ -28,17 +29,52 @@ const backgroundAnimation = {
     transition: { delay: custom * 1 },
   }),
 }
-const titleAnimation = {
+const textAnimation = {
   hidden: {
+    y: 200,
     opacity: 0,
-    y: -20,
   },
   visible: (custom) => ({
+    y: 10,
     opacity: 1,
-    y: 0,
-    transition: { delay: custom * 1 },
+    transition: { delay: custom * 0.5 },
   }),
 }
+const drawAnimation = {
+  hidden: { pathLength: 0, opacity: 0 },
+  visible: (custom) => ({
+    pathLength: 1,
+    opacity: 1,
+    transition: {
+      pathLength: {
+        delay: custom * 0.5,
+        type: 'spring',
+        duration: 1.5,
+        bounce: 0,
+      },
+      opacity: { delay: custom * 0.5 },
+    },
+  }),
+}
+const triangleAnimation = {
+  hidden: { pathLength: 0, opacity: 0 },
+  visible: (custom) => ({
+    pathLength: 1,
+    opacity: 1,
+    transition: {
+      pathLength: {
+        delay: custom * 0.5 + 1.2,
+        type: 'spring',
+        duration: 0.1,
+        bounce: 0,
+      },
+      opacity: { delay: custom * 0.5 + 1.2 },
+    },
+  }),
+}
+
+const linePath = 'M44,21 C129,229 390,0 544,148'
+const reverseLinePath = 'M544,75 C371,183 183,15 44,164'
 
 const Homepage = () => {
   useEffect(() => {
@@ -64,13 +100,13 @@ const Homepage = () => {
         variants={backgroundAnimation}
         className={styles.background_wrapper}>
         <motion.h1
-          variants={textAnimation}
+          variants={helloAnimation}
           custom={3}
           className={styles.background_text}>
-          Hello,Nataraure!
+          Hello, Nataraure!
         </motion.h1>
         <motion.h2
-          variants={textAnimation}
+          variants={helloAnimation}
           custom={3.5}
           className={styles.background_text}>
           we are glad to see you!
@@ -80,20 +116,53 @@ const Homepage = () => {
       <motion.div
         initial='hidden'
         whileInView='visible'
-        viewport={{ amount: 0.2, once: true }}
+        viewport={{ amount: 0.3 }}
         className={styles.index_content_wrapper}>
-        <motion.span variants={titleAnimation} custom={1}>
+        <motion.div
+          variants={textAnimation}
+          custom={1}
+          className={`${styles.content_text_wrapper}`}>
           <Title>Step1</Title>
-        </motion.span>
-        <motion.span variants={titleAnimation} custom={2}>
+        </motion.div>
+        <LineWithArrow
+          triangleAnimation={triangleAnimation}
+          drawAnimation={drawAnimation}
+          id={1}
+          linePath={linePath}
+          custom={1}
+        />
+        <motion.div
+          variants={textAnimation}
+          custom={3}
+          className={`${styles.content_text_wrapper} right_children`}>
           <Title>Step2</Title>
-        </motion.span>
-        <motion.span variants={titleAnimation} custom={3}>
+        </motion.div>
+        <LineWithArrow
+          triangleAnimation={triangleAnimation}
+          drawAnimation={drawAnimation}
+          id={3}
+          linePath={reverseLinePath}
+          custom={3}
+        />
+        <motion.div
+          variants={textAnimation}
+          custom={5}
+          className={`${styles.content_text_wrapper}`}>
           <Title>Step3</Title>
-        </motion.span>
-        <motion.span variants={titleAnimation} custom={4}>
+        </motion.div>
+        <LineWithArrow
+          triangleAnimation={triangleAnimation}
+          drawAnimation={drawAnimation}
+          id={5}
+          linePath={linePath}
+          custom={5}
+        />
+        <motion.div
+          variants={textAnimation}
+          custom={7}
+          className={`${styles.content_text_wrapper} right_children`}>
           <Title>Step4</Title>
-        </motion.span>
+        </motion.div>
       </motion.div>
     </>
   )
