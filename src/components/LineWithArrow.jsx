@@ -9,7 +9,11 @@ const LineWithArrow = ({
   custom,
 }) => {
   return (
-    <motion.svg width='600' height='100' viewBox='0 0 200 200'>
+    <motion.svg
+      width='600'
+      height='200'
+      viewBox='0 0 600 170'
+      style={{ display: 'block', margin: '0 auto' }}>
       <defs>
         <marker
           id={`triangle${id}`}

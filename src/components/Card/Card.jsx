@@ -14,6 +14,7 @@ const Card = ({ canBePurchased, id, name, img, desc, cost }) => {
               src='https://picsum.photos/300/200'
               width={300}
               height={200}
+              alt='florarium'
             />
           </div>
           <div className={`${styles.card_content} card-content`}>
@@ -28,7 +29,9 @@ const Card = ({ canBePurchased, id, name, img, desc, cost }) => {
           </div>
           <div className={`${styles.card_action} card-action`}>
             <Link href={`/items/${id}`}>
-              <a className='pink-text text-accent-2 remove_margin'>Прочитай про меня</a>
+              <a className='pink-text text-accent-2 remove_margin'>
+                Прочитай про меня
+              </a>
             </Link>
           </div>
         </div>
