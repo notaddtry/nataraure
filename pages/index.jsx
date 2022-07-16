@@ -85,7 +85,7 @@ const Homepage = () => {
           opacity: 1,
         }}
         transition={{ delay: 0.5, duration: 1 }}>
-        <Image src={backgroundPic} layout='fill' alt="florarium"/>
+        <Image src={backgroundPic} layout='fill' alt='florarium' />
       </motion.div>
       <motion.div
         initial='hidden'
@@ -94,18 +94,18 @@ const Homepage = () => {
         viewport={{ once: true }}
         variants={backgroundAnimation}
         className={styles.background_wrapper}>
-        <motion.h1
+        <motion.span
           variants={helloAnimation}
           custom={3}
           className={styles.background_text}>
-          Hello, Nataraure!
-        </motion.h1>
-        <motion.h2
+          <Title custom={1}>Hello, Nataraure!</Title>
+        </motion.span>
+        <motion.span
           variants={helloAnimation}
           custom={3.5}
           className={styles.background_text}>
-          we are glad to see you!
-        </motion.h2>
+          <Title>we are glad to see you!</Title>
+        </motion.span>
       </motion.div>
 
       <motion.div
@@ -113,6 +113,9 @@ const Homepage = () => {
         whileInView='visible'
         viewport={{ amount: 0.1, once: true }}
         className={styles.index_content_wrapper}>
+        <motion.span variants={helloAnimation} custom={0.2}>
+          <Title className='text_center'>Процесс созидания</Title>
+        </motion.span>
         <motion.div
           variants={textAnimation}
           custom={1}
@@ -133,7 +136,7 @@ const Homepage = () => {
               className={styles.content_text}
               width={300}
               height={200}
-              alt="florarium"
+              alt='florarium'
             />
           </div>
         </motion.div>
@@ -153,7 +156,7 @@ const Homepage = () => {
               src='https://picsum.photos/300/200'
               width={300}
               height={200}
-              alt="florarium"
+              alt='florarium'
             />
             <span className={`${styles.content_text} ${styles.right}`}>
               <Title>Step2</Title>
@@ -193,7 +196,7 @@ const Homepage = () => {
               src='https://picsum.photos/300/200'
               width={300}
               height={200}
-              alt="florarium"
+              alt='florarium'
             />
           </div>
         </motion.div>
@@ -213,7 +216,7 @@ const Homepage = () => {
               src='https://picsum.photos/300/200'
               width={300}
               height={200}
-              alt="florarium"
+              alt='florarium'
             />
             <span className={`${styles.content_text} ${styles.right}`}>
               <Title>Step4</Title>

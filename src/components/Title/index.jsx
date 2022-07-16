@@ -2,13 +2,15 @@ import React from 'react'
 
 import moduleStyle from './title.module.scss'
 
-const Title = ({ className, children, styles }) => {
-  const propStyles = { ...styles }
+const Title = ({ className, children, styles, custom = 2 }) => {
+  const HeadingTag = `h${custom}`
 
   return (
-    <h2 style={{ ...styles }} className={`${moduleStyle.title} ${className}`}>
+    <HeadingTag
+      style={{ ...styles }}
+      className={`${moduleStyle.title} ${className}`}>
       {children}
-    </h2>
+    </HeadingTag>
   )
 }
 

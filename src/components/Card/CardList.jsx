@@ -1,5 +1,6 @@
 import React from 'react'
 import useSWR from 'swr'
+import Title from '../Title'
 import Card from './Card'
 
 import styles from './card.module.scss'
@@ -18,7 +19,7 @@ const CardList = ({ cards }) => {
 
   return (
     <>
-      <h2>Наши проекты</h2>
+      <Title custom={1}>Наши проекты</Title>
       <div className={styles.card_wrapper}>
         {cards.map((card) => (
           <Card key={card.id} {...card} />

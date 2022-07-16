@@ -54,3 +54,133 @@
     }
   }
 }
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  font-size: 2rem;
+  font-weight: bold;
+
+  .contacts {
+    display: flex;
+    flex-direction: column;
+
+    width: max-content;
+  }
+}
+.map_wrapper {
+  margin-top: 3rem;
+}
+.map {
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
+  margin: 2rem 0;
+}
+
+.info_wrapper {
+  display: flex;
+
+  .img_wrapper {
+    flex: 1 1 60%;
+    min-height: 400px;
+    max-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    pointer-events: none;
+    position: relative;
+    .line_1 {
+      position: absolute;
+      left: 0;
+      animation: leftAnimation 2.5s ease-in-out infinite;
+    }
+    .line_2 {
+      position: absolute;
+      left: 20px;
+      animation: leftAnimation 2.5s ease-in-out infinite 0.3s;
+    }
+    .line_3 {
+      position: absolute;
+      left: 40px;
+      animation: leftAnimation 2.5s ease-in-out infinite 0.5s;
+    }
+    .line_4 {
+      position: absolute;
+
+      right: 40px;
+      animation: rightAnimation 2.5s ease-in-out infinite 0.5s;
+    }
+    .line_5 {
+      position: absolute;
+      right: 20px;
+      animation: rightAnimation 2.5s ease-in-out infinite 0.3s;
+    }
+    .line_6 {
+      position: absolute;
+      right: 0;
+      animation: rightAnimation 2.5s ease-in-out infinite;
+    }
+    .phone {
+      width: 250px;
+      height: 300px;
+      margin-left: auto;
+      position: absolute;
+      animation: phoneAnimation 6s ease-in-out infinite alternate;
+    }
+  }
+  .info_content_wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 40%;
+    justify-content: center;
+  }
+  .info_content {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.contactus_wrapper {
+  display: flex;
+}
+
+@keyframes leftAnimation {
+  0% {
+    transform: translate(0px, 0px) scale(1, 1);
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translate(-70px, 0) scale(1.5, 1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes rightAnimation {
+  0% {
+    transform: translate(0px, 0px) scale(1, 1);
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translate(70px, 0) scale(1.5, 1.5);
+    opacity: 0;
+  }
+}
+@keyframes phoneAnimation {
+  0%,
+  85% {
+    transform: scale(1, 1);
+  }
+  100% {
+    transform: scale(1.05, 1.05);
+  }
+}
