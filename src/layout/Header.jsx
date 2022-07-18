@@ -20,8 +20,8 @@ const Header = ({ scrollY }) => {
     '0 2px 2px 0 rgba(0,0,0,0), 0 3px 1px -2px rgba(0,0,0,0), 0 1px 5px 0 rgba(0,0,0,0)',
     '0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2)',
   ]
-  const backgroundOffsetY = [0, 200]
-  const colorOffsetY = [0, 50]
+  const backgroundOffsetY = [0, 100]
+  const colorOffsetY = [0, 100]
   const background = useTransform(scrollY, backgroundOffsetY, backgroundColors)
   const boxShadow = useTransform(scrollY, backgroundOffsetY, boxShadows)
   const color = useTransform(scrollY, colorOffsetY, textColors)
@@ -51,12 +51,13 @@ const Header = ({ scrollY }) => {
               <Image src={LogoPic} alt='logo' width={80} height={60} />
             </a>
           </Link>
-          <span
+          <motion.span
+            style={router.pathname === '/' ? { color: '#fff' } : { color }}
             className={`${styles.burger} sidenav-trigger hide-on-large-only`}
             onClick={() => setSlider((s) => !s)}>
             <i className='material-icons'>menu</i>
-          </span>
-          <ul className='right hide-on-med-and-down'>
+          </motion.span>
+          <ul className='right hide-on-med-and-down text_bold'>
             <li>
               <Link href='/about'>
                 <motion.a

@@ -82,19 +82,19 @@ function Contactpage() {
         <div className={styles.info_content_wrapper}>
           <a
             href='tel:+79851401200'
-            className={`${styles.info_content} text_center pink-text text-accent-2`}>
-            <span>
+            className={`${styles.info_content} pink-text text-accent-2`}>
+            <span style={{ color: 'inherit' }}>
               <i className='material-icons'>local_phone</i> Телефон:{' '}
             </span>
             <span>8-985-140-12-00</span>
           </a>
           <a
-            className={`${styles.info_content} text_center pink-text text-accent-2 `}
+            className={`${styles.info_content} pink-text text-accent-2 `}
             href='https://api.whatsapp.com/send?phone=89851401200'
             target='_blank'
             rel='noopener'>
             <span>
-              <FontAwesomeIcon icon={faWhatsapp} /> Whatsup:{' '}
+              <FontAwesomeIcon icon={faWhatsapp} /> WhatsApp:{' '}
             </span>
 
             <span>8-985-140-12-00</span>
@@ -118,7 +118,7 @@ function Contactpage() {
             </div>
           ))}
           <div className={styles.phone}>
-            <Image src={PhonePic} width={450} height={500} />
+            <Image src={PhonePic} width={300} height={450} />
           </div>
         </div>
       </div>

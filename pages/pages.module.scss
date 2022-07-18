@@ -1,12 +1,4 @@
-.parallax_wrapper {
-  // top: 0;
-  // left: 0;
-  // bottom: 0;
-  // left: 0;
-  // position: absolute;
-  // min-height: 100vh;
-  // min-width: 100%;
-}
+@import '/styles/variables.scss';
 
 .background_wrapper {
   padding-top: 5rem;
@@ -80,17 +72,30 @@
 
 .info_wrapper {
   display: flex;
+  justify-content: space-around;
+
+  @media (max-width: 720px) {
+    justify-content: flex-start;
+  }
 
   .img_wrapper {
-    flex: 1 1 60%;
-    min-height: 400px;
-    max-height: 400px;
+    min-height: 500px;
+    max-height: 500px;
+    min-width: 400px;
+    max-width: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
-
     pointer-events: none;
     position: relative;
+
+    @media (max-width: 1199px) {
+      min-height: 400px;
+      max-height: 400px;
+      min-width: 300px;
+      max-width: 300px;
+    }
+
     .line_1 {
       position: absolute;
       left: 0;
@@ -123,22 +128,50 @@
       animation: rightAnimation 2.5s ease-in-out infinite;
     }
     .phone {
-      width: 250px;
-      height: 300px;
       margin-left: auto;
       position: absolute;
       animation: phoneAnimation 6s ease-in-out infinite alternate;
     }
   }
   .info_content_wrapper {
+    text-align: left;
     display: flex;
     flex-direction: column;
-    flex: 1 1 40%;
+
     justify-content: center;
+
+    @media (max-width: 992px) {
+      flex-direction: row;
+    }
+    @media (max-width: 720px) {
+      flex-direction: column;
+    }
   }
   .info_content {
     display: flex;
     flex-direction: column;
+    transition: color 0.2s ease-in;
+
+    &:hover {
+      color: $pinkHover !important;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 992px) {
+      &:not(:last-child) {
+        margin-bottom: 0;
+        margin-right: 2rem;
+      }
+    }
+    @media (max-width: 720px) {
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+        margin-right: 0;
+      }
+    }
   }
 }
 
@@ -182,5 +215,29 @@
   }
   100% {
     transform: scale(1.05, 1.05);
+  }
+}
+
+.about_wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+
+  .about_info_wrapper {
+    display: flex;
+    justify-content: space-evenly;
+
+    // & > * {
+    //   flex: 1 1 50%;
+    // }
+
+    .quote {
+      max-width: 400px;
+      justify-self: flex-end;
+      align-self: center;
+    }
+  }
+  .about_content_wrapper {
+    margin-top: 2rem;
   }
 }

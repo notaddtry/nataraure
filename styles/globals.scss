@@ -10,8 +10,6 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-
-
 #__next {
   display: flex;
   min-height: 100vh;
@@ -45,4 +43,8 @@ a {
 
 .text_center {
   text-align: center;
+}
+
+.text_bold {
+  font-weight: bold;
 }

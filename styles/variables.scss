@@ -1,6 +1,7 @@
-$color: #43a047;
-$primaryColor: red;
+$pink: #ff4081;
+$pinkHover: #f50057;
 
 :export {
-  color: $color;
+  pink: $pink;
+  pinkHover: $pinkHover;
 }
