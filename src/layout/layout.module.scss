@@ -37,3 +37,28 @@
   -ms-user-select: none;
   user-select: none;
 }
+
+.links_wrapper {
+  display: flex;
+  width: 40%;
+
+  .cart {
+    position: relative;
+    margin-left: auto;
+
+    .label {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 0.25rem;
+      right: 0.25rem;
+      height: 1.25rem;
+      width: 1.25rem;
+      border-radius: 50%;
+      background-color: $pink;
+      color: #fff;
+      font-size: 0.75rem;
+    }
+  }
+}

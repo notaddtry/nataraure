@@ -7,6 +7,7 @@ import LogoPic from '../../public/assets/logo.png'
 
 import styles from './layout.module.scss'
 import { useRouter } from 'next/router'
+import { useSelector } from 'react-redux'
 
 const Header = ({ scrollY }) => {
   const router = useRouter()
@@ -27,10 +28,16 @@ const Header = ({ scrollY }) => {
   const color = useTransform(scrollY, colorOffsetY, textColors)
   const reverseColor = useTransform(scrollY, colorOffsetY, reverseTextColors)
 
+  const cart = useSelector((state) => state.cart)
+
   useEffect(() => {
     setSlider(false)
     setReady(true)
   }, [])
+
+  const getItemsCount = () => {
+    return cart.reduce((accumulator, item) => accumulator + item.quantity, 0)
+  }
 
   if (!isReady) {
     return <span></span>
@@ -51,13 +58,15 @@ const Header = ({ scrollY }) => {
               <Image src={LogoPic} alt='logo' width={80} height={60} />
             </a>
           </Link>
+
           <motion.span
             style={router.pathname === '/' ? { color: '#fff' } : { color }}
             className={`${styles.burger} sidenav-trigger hide-on-large-only`}
             onClick={() => setSlider((s) => !s)}>
             <i className='material-icons'>menu</i>
           </motion.span>
-          <ul className='right hide-on-med-and-down text_bold'>
+          <ul
+            className={`${styles.links_wrapper} right hide-on-med-and-down text_bold`}>
             <li>
               <Link href='/about'>
                 <motion.a
@@ -85,6 +94,19 @@ const Header = ({ scrollY }) => {
                     router.pathname === '/' ? { color: '#fff' } : { color }
                   }>
                   Contact
+                </motion.a>
+              </Link>
+            </li>
+            <li className={styles.cart}>
+              <Link href='/cart'>
+                <motion.a
+                  style={
+                    router.pathname === '/' ? { color: '#fff' } : { color }
+                  }>
+                  <i className='material-icons'>shopping_cart</i>
+                  {cart.length ? (
+                    <div className={styles.label}>{getItemsCount()}</div>
+                  ) : null}
                 </motion.a>
               </Link>
             </li>
@@ -130,6 +152,11 @@ const Header = ({ scrollY }) => {
         <li>
           <Link href='/contact'>
             <a onClick={() => setSlider((s) => !s)}>Contact</a>
+          </Link>
+        </li>
+        <li>
+          <Link href='/cart'>
+            <a onClick={() => setSlider((s) => !s)}>Cart</a>
           </Link>
         </li>
       </ul>
