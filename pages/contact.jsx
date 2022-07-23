@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Map from '../src/components/Map'
 import Title from '../src/components/Title'
 
@@ -10,6 +10,8 @@ import PhonePic from '../public/assets/phone.png'
 
 import styles from './pages.module.scss'
 import Image from 'next/image'
+import Popup from '../src/components/Popup'
+import ContactUs from '../src/components/ContactUs'
 
 const PHONE_LINES = [
   {
@@ -45,37 +47,14 @@ const PHONE_LINES = [
 ]
 
 function Contactpage() {
+  const [isOpen, setOpen] = useState(false)
+
+  const onClose = (e) => {
+    e.preventDefault()
+    setOpen(false)
+  }
+
   return (
-    //   <div className={styles.contact}>
-    //     <Title custom={1}>Контакты</Title>
-    //     <div className={styles.contacts}>
-    //       <a href='tel:+791401200'>
-    //         <i className='material-icons'>local_phone</i> Телефон:{' '}
-    //         <span>8-985-140-12-00</span>
-    //       </a>
-    //       <a
-    //         href='https://api.whatsapp.com/send?phone=89851401200'
-    //         target='_blank'
-    //         rel='noopener'>
-    //         <FontAwesomeIcon icon={faWhatsapp} /> Whatsap:{' '}
-    //         <span>8-985-140-12-00</span>
-    //       </a>
-    //       <a href='mailto:nataraure@mail.ru'>
-    //         <FontAwesomeIcon icon={faEnvelope} /> Почта:{' '}
-    //         <span>nataraure@mail.ru</span>
-    //       </a>
-    //     </div>
-    //     <hr />
-    // <div className={styles.map_wrapper}>
-    //   <span>
-    //     <FontAwesomeIcon icon={faMapLocation} /> Адрес:{' '}
-    //     <span>г.Москва, улица Чертановская, д.21, к.1</span>
-    //   </span>
-    //   <div className={styles.map}>
-    //     <Map />
-    //   </div>
-    // </div>
-    //   </div>
     <div className={`${styles.contact} row`}>
       <Title custom={1}>Контакты</Title>
       <div className={`${styles.info_wrapper} col s12`}>
@@ -131,6 +110,11 @@ function Contactpage() {
           <Map />
         </div>
       </div>
+      <button onClick={() => setOpen(true)}>Click me</button>
+
+      <Popup isOpened={isOpen} onClose={onClose} title={'Contact!'}>
+        <ContactUs />
+      </Popup>
     </div>
   )
 }
