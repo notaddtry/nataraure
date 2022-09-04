@@ -1,0 +1,54 @@
+.card_wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+// .card_content {
+//   flex: 1 1 100%;
+// }
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card_action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buy_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+
+  .cost {
+    font-size: 1.5rem;
+    font-weight: 100;
+  }
+}
+
+.buy_info_wrapper {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  font-weight: 100;
+}
+
+.buttons {
+  margin: 1rem 0;
+  & > button:not(:last-child) {
+    margin-right: 0.5rem;
+  }
+}
+
+.final_sum {
+  border-top: rgba($color: #000000, $alpha: 0.12) 1px solid;
+  padding-top: 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}

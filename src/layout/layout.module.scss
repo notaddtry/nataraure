@@ -1,0 +1,74 @@
+@import '../../styles/variables.scss';
+
+.container {
+  flex: 1 1 100%;
+  padding: 0.5rem 0 1.5rem;
+  // background-color: $color;
+}
+
+.footer {
+  padding-top: 0 !important;
+}
+
+.navbar {
+  z-index: 998 !important;
+}
+
+.close_wrapper {
+  height: 56px;
+}
+
+.close {
+  float: left;
+  position: relative;
+  z-index: 1;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 18px;
+}
+
+.burger {
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.links_wrapper {
+  display: flex;
+  width: 40%;
+}
+.cart,
+.cart_mobile {
+  position: relative;
+  margin-left: auto;
+
+  .label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0.25rem;
+    right: 0.25rem;
+    height: 1.25rem;
+    width: 1.25rem;
+    border-radius: 50%;
+    background-color: $pink;
+    color: #fff;
+    font-size: 0.75rem;
+  }
+}
+
+.cart_mobile {
+  margin: 0 18px;
+
+  .label {
+    top: 0.25rem;
+    right: -0.5rem;
+  }
+}
